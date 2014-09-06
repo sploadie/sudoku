@@ -48,11 +48,6 @@ char	*get_sudoku(int num, char **sudoku)
 	return (&sudoku[row][column - 1]);
 }
 
-int		check_sudoku(int num, char **sudoku)
-{
-
-}
-
 char	**save_sudoku(char **argv)
 {
 	int		i;
