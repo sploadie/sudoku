@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<unistd.h>
-#include	<stdlib.h>
+#include	"sudoku.h"
 
 void	ft_putchar(char c)
 {
@@ -40,7 +39,7 @@ int		ft_str_is_sudoku(char *str)
 	ptr = str;
 	while (*ptr != '\0')
 	{
-		if (*ptr < '0' || *ptr > '9' || *ptr != '.')
+		if ((*ptr < '0' || *ptr > '9') && *ptr != '.')
 			return (0);
 		ptr++;
 	}

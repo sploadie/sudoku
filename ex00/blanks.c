@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
-#include	"sudoku_util.c"
+#include	"sudoku.h"
 
 int		*init_blanks(char **sudoku)
 {
 	int	*blanks;
-	int b;
+	int	b;
 	int	i;
 
 	blanks = (int *)malloc(sizeof(int) * 82);
@@ -31,16 +30,18 @@ int		*init_blanks(char **sudoku)
 		i++;
 	}
 	*blanks = b;
-	return (b);
+	return (blanks);
 }
 
 char	blank_next(int blank_space, char **sudoku)
 {
-	int *blank;
+	char	*blank;
 
 	blank = get_sudoku(blank_space, sudoku);
 	if (*blank == '.' || *blank == ':')
 		*blank = '1';
+	else
+		(*blank)++;
 	while (check_sudoku(blank_space, sudoku) == 0 && *blank != ':')
 		(*blank)++;
 	return (*blank);

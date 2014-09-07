@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
+#include	"sudoku.h"
 
 int		is_sudoku(int argc, char **argv)
 {
@@ -19,10 +19,11 @@ int		is_sudoku(int argc, char **argv)
 	if (argc != 10)
 		return (0);
 	i = 1;
-	while (i <= 10)
+	while (i <= 9)
 	{
 		if (ft_strlen(argv[i]) != 9 || ft_str_is_sudoku(argv[i]) != 1)
 			return (0);
+		i++;
 	}
 	return (1);
 }
@@ -30,10 +31,22 @@ int		is_sudoku(int argc, char **argv)
 void	print_sudoku(char **sudoku)
 {
 	int	i;
+	int j;
 
 	i = 1;
-	while (i <= 10)
-		ft_putstr(argv[i]);
+	while (i <= 9)
+	{
+		ft_putchar(sudoku[i][0]);
+		j = 1;
+		while (j < 9)
+		{
+			ft_putchar(' ');
+			ft_putchar(sudoku[i][j]);
+			j++;
+		}
+		ft_putchar('\n');
+		i++;
+	}
 }
 
 char	*get_sudoku(int num, char **sudoku)
@@ -44,7 +57,7 @@ char	*get_sudoku(int num, char **sudoku)
 	row = ((num - 1) / 9) + 1;
 	column = num % 9;
 	if (column == 0)
-		column = ((num - 1) / 9) + 1;
+		column = ((num - 1) % 9) + 1;
 	return (&sudoku[row][column - 1]);
 }
 
@@ -57,11 +70,12 @@ char	**save_sudoku(char **argv)
 	if (sudoku == NULL)
 		return (sudoku);
 	i = 1;
-	while (i <= 10)
+	while (i <= 9)
 	{
 		sudoku[i] = ft_strdup(argv[i]);
 		if (sudoku[i] == NULL)
 			return (NULL);
+		i++;
 	}
 	return	sudoku;
 }
