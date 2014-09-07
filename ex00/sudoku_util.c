@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/06 17:41:25 by tgauvrit          #+#    #+#             */
-/*   Updated: 2014/09/06 17:41:26 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2014/09/07 18:42:06 by eruffieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ char	**save_sudoku(char **argv)
 			return (NULL);
 		i++;
 	}
-	return	sudoku;
+	return (sudoku);
 }
