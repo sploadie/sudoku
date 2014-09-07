@@ -20,26 +20,18 @@ int		print_error(void)
 
 int solve(char **sudoku, int *blanks, int curr_blank)
 {
-	if (blank_next(blanks[curr_blank], sudoku) != ':')
+	while (curr_blank != blanks[0] + 1 && curr_blank != 0)
 	{
-		if (curr_blank != blanks[0])
+		if (blank_next(blanks[curr_blank], sudoku) != ':')
 		{
-			return (solve(sudoku, blanks, curr_blank + 1));
+			curr_blank++;
 		}
 		else
 		{
-			ft_putstr("WOOT!\n"); //FIXME
-			return (curr_blank);
+			curr_blank--;
 		}
 	}
-	else if (curr_blank == 1)
-	{
-		return (0);
-	}
-	else
-	{
-		return (solve(sudoku, blanks, curr_blank - 1));
-	}
+	return (curr_blank);
 }
 
 int	main(int argc, char **argv)

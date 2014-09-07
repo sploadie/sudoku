@@ -45,3 +45,7 @@ int		check_sudoku(int num, char **sudoku);
 int		*init_blanks(char **sudoku);
 
 char	blank_next(int blank_space, char **sudoku);
+
+// FIXME V
+
+void	ft_putnbr(int nb);

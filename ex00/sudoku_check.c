@@ -22,9 +22,13 @@ int		check_sudoku_r_c(int row, int column, char **sudoku)
 	while (i <= 9)
 	{
 		if (sudoku[row][i - 1] == space && i != column)
+		{
 			return (0);
+		}
 		if (sudoku[i][column - 1] == space && i != row)
+		{
 			return (0);
+		}
 		i++;
 	}
 	return (1);
@@ -50,7 +54,9 @@ int		check_sudoku_sqr(int row, int column, char **sudoku)
 			if (sudoku[box_row + i][(box_col + j) - 1] == space
 				&& box_row + i != row
 				&& box_col + j != column)
+			{
 				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -67,6 +73,7 @@ int		check_sudoku(int num, char **sudoku)
 	column = num % 9;
 	if (column == 0)
 		column = ((num - 1) % 9) + 1;
+
 	if    ((check_sudoku_r_c(row, column, sudoku) == 0)
 		|| (check_sudoku_sqr(row, column, sudoku) == 0))
 		return (0);

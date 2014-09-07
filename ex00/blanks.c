@@ -43,6 +43,8 @@ char	blank_next(int blank_space, char **sudoku)
 	else
 		(*blank)++;
 	while (check_sudoku(blank_space, sudoku) == 0 && *blank != ':')
+	{
 		(*blank)++;
+	}
 	return (*blank);
 }
