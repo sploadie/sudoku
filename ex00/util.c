@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/06 16:06:47 by tgauvrit          #+#    #+#             */
-/*   Updated: 2014/09/07 18:45:22 by eruffieu         ###   ########.fr       */
+/*   Updated: 2014/09/07 22:17:02 by eruffieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_str_is_sudoku(char *str)
 	ptr = str;
 	while (*ptr != '\0')
 	{
-		if ((*ptr < '0' || *ptr > '9') && *ptr != '.')
+		if ((*ptr < '1' || *ptr > '9') && *ptr != '.')
 			return (0);
 		ptr++;
 	}
