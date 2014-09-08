@@ -17,13 +17,24 @@ int		*init_blanks(char **sudoku)
 	int	*blanks;
 	int	b;
 	int	i;
+	int end;
 
 	blanks = (int *)malloc(sizeof(int) * 82);
 	if (blanks == NULL)
 		return (blanks);
 	b = 0;
 	i = 1;
+	while (i <= 81 && *get_sudoku(i, sudoku) == '.')
+		i++;
+	end = i;
 	while (i <= 81)
+	{
+		if (*get_sudoku(i, sudoku) == '.')
+			blanks[++b] = i;
+		i++;
+	}
+	i = 1;
+	while (i < end)
 	{
 		if (*get_sudoku(i, sudoku) == '.')
 			blanks[++b] = i;
